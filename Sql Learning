@@ -1,1 +1,109 @@
 SQl Tutoral
+
+Database
+    -> Database is collection of data in a format that can be easily accessed (Digital).
+    -> A Software application used to manage our DB is called DBMS (Database Management System).
+
+Types of Databases
+    # Relational DBMS
+        -> Data stored in tables.
+        Example -> Mysql, Sql Server, Oracle, PostgreSQL.
+
+    # Non-Relation DBMS (NoSQL)
+        -> Data not stored is tables.
+        Example -> mongoDB
+
+What is SQL?
+    -> Structured Query Language.
+    -> SQL is a progamming language used to interact with relational databases.
+    -> It is used to perform CRUD operations:
+        C: Create
+        R: Read
+        U: Update
+        D: Delete
+
+Database Structure
+
+What is Table
+
+Creating our First Database
+    -> CREATE DATABASE db_name;  ( create database: can also be used ).
+    -> DROP DATABASE db_name; ( drop database:  can also be used ).
+
+Creating our First Table
+    -> USE db_name; (use: can also be used ).
+    # Creat Table Query
+        Syntax
+        CREATE TABLE table_name (
+            column_name1    datatype    constraint,
+            column_name2    datatype    constraint,
+            column_name3    datatype    constraint
+        );
+
+        Query
+        CREATE TABLE student (
+            id      INT         PRIMARY KEY,
+            name    VARCHAR(50) NOT NULL,
+            age     INT         NOT NULL
+        );
+
+SQL Datatypes
+
+        NUMERIC DATA TYPES
+    -----------------
+    Data Type           Description                                         Usage
+    ------------------  --------------------------------------------------  -------------------------
+    INT / INTEGER       Stores whole numbers such as 1, 10, -5               INT
+    SMALLINT            Stores smaller range whole numbers, saves memory     SMALLINT
+    BIGINT              Stores very large whole numbers                      BIGINT
+    TINYINT             Stores very small numbers (commonly 0 or 1 in MySQL) TINYINT(1)
+    DECIMAL(p,s)        Stores exact decimal values; used for money/salary   DECIMAL(10,2)
+    NUMERIC(p,s)        Same as DECIMAL; ensures precision                   NUMERIC(8,2)
+    FLOAT               Stores approximate decimal values                    FLOAT
+    DOUBLE              Stores larger floating-point numbers                 DOUBLE
+
+
+    STRING DATA TYPES
+    -----------------
+    Data Type           Description                                         Usage
+    ------------------  --------------------------------------------------  -------------------------
+    CHAR(n)             Fixed-length string; unused space is padded          CHAR(5)
+    VARCHAR(n)          Variable-length string; saves space                  VARCHAR(100)
+    TEXT                Stores large text such as descriptions/comments      TEXT
+    LONGTEXT            Stores very large text content (MySQL specific)      LONGTEXT
+
+
+    DATE & TIME DATA TYPES
+    ---------------------
+    Data Type           Description                                         Usage
+    ------------------  --------------------------------------------------  -------------------------
+    DATE                Stores date only in YYYY-MM-DD format                DATE
+    TIME                Stores time only in HH:MM:SS format                  TIME
+    DATETIME            Stores date and time without timezone                DATETIME
+    TIMESTAMP           Stores date and time with timezone support           TIMESTAMP
+    YEAR                Stores year value (MySQL specific)                   YEAR
+
+
+    BOOLEAN DATA TYPE
+    -----------------
+    Data Type           Description                                         Usage
+    ------------------  --------------------------------------------------  -------------------------
+    BOOLEAN / BOOL      Stores TRUE or FALSE values (0 or 1 internally)      BOOLEAN
+
+
+    BINARY DATA TYPES
+    -----------------
+    Data Type           Description                                         Usage
+    ------------------  --------------------------------------------------  -------------------------
+    BINARY(n)           Fixed-length binary data                             BINARY(16)
+    VARBINARY(n)        Variable-length binary data                          VARBINARY(255)
+    BLOB                Stores binary large objects such as images/files     BLOB
+
+    # SQL Datatypes (Signed: For positive and Negative  & Unsigned: For Positive Only)
+        
+        TINYINT (-128 to 127)
+        TINYINT UNSIGNED (0 to 255) ( UNSIGNED: it can increase the range ).
+
+
+
+

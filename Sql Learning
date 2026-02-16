@@ -104,6 +104,104 @@ SQL Datatypes
         TINYINT (-128 to 127)
         TINYINT UNSIGNED (0 to 255) ( UNSIGNED: it can increase the range ).
 
+Types of SQL Commands
+    # DDL (Data Defination Language): create, alter, rename, truncate & drop
+    # DQL (Data Query Language): select
+    # DML (Data Manipulation Language): insert, update & delete 
+    # DCL (Data Control Language): grant & revoke permission to users
+    # TCL (Transaction Control Language): start transaction, commit, rollback
 
+Database related Queries
+    -> CREATE DATABASE db_name;
+    -> CREATE DATABASE IF NOT EXISTS db_name;
+    -> DROP DATABASE db_name;
+    -> DROP DATABASE IF EXISTS db_name;
+    -> SHOW DATABASE;
+    -> SHOW TABLES;
+
+Table related Queries
+    # Create
+        Syntax:
+            CREATE TABLE table_name (
+                column_name1 datatype constraint;
+                column_name2 datatype constraint;
+            );
+
+        Sample:
+            CREATE TABLE student (
+                rollno INT PRIMARY KEY,
+                name VARCHAR(50)
+            );
+    
+    # Select & View All columns
+        Syntax:
+            SELECT * FROM table_name;
+
+        Sample:
+            SELECT * FROM student;
+    
+    # Insert 
+        Syntax:
+            INSERT INTO table_name (column_name1, column_name2) 
+            VALUES 
+            (col1_v1, col2_v1), 
+            (col1_v2, col2_v2);
+
+        Sample:
+            INSERT INTO student (rollno, name)
+            VALUES
+            (101,"Naseem"),
+            (102."Hafiz");
+
+Keys
+    # Primary Key
+        -> It is a column (or set of columns) in a table that uniquely identites each row. (a unique id)
+        -> There is only 1 PK & it should be NOT null.
+    
+    # Foreign Key
+        -> A foreign key is a column (or set of columns) in a table that refers to the primary key of other table.
+        -> There can be multiple FK.
+        -> FKs can have duplicate & null values. 
+
+Constraints
+    -> SQL constraints are used to specify rules for data in a table.
+        NOT NULL columns cannot have a null value
+        Syntax:     col1 int NOT NULL
+
+        UNIQUE all values in column are diffrent 
+        Syntax:     col2 int UNIQUE
+
+        PRIMARY KEY makes a column unique & not null but used only for one
+        Syntax:     id int PRIMARY KEY
+
+        Sample:
+            CREATE TABLE temp (
+                id int not null,
+                PRIMARY KEY (id)
+            );
+
+        FOREIGN KEY prevent actions that would destroy link between TABLES
+        Sample:
+            CREATE TABLE temp (
+                cust_id int,
+                FOREIGN KEY (cust_id) references customer(id)
+            );
+
+        DEFAULT sets the default value of a column
+            Sample:
+                salary INT DEFAULT 25000
+
+        CHECK it can limit the values allowed in a column
+            Sample:
+                CREATE TABLE city (
+                    id INT PRIMARY KEY,
+                    city VARCHAR(50),
+                    age INT,
+                    CONSTRAINT age_check CHECK (age >= 18 AND city = "Delhi")
+                );
+
+                CREATE TABLE newTab (
+                    age INT CHECK (age >= 18)
+                );
 
 
